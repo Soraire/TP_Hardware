@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const getTemperature = async () => {
   try {
-    const response = await axios.get('https://api.example.com/weather');
+    const response = await axios.get('https://api.weatherapi.com/v1/current.json?q=Buenos%20Aires&key=6d543f6a96974a35852114433231110');
     return response.data.temperature;
   } catch (error) {
     console.error('Error fetching temperature:', error);
