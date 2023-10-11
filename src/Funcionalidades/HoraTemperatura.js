@@ -37,3 +37,4 @@ const App = () => {
 };
 
 export default App;
+//https://api.weatherapi.com/v1/current.json?q=Buenos%20Aires&key=6d543f6a96974a35852114433231110

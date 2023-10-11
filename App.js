@@ -1,40 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Title from './src/Funcionalidades/Title';
-import Contactos from './src/Funcionalidades/Contactos';
+/*import Title from './src/Funcionalidades/Title';
+import Contactos from './src/Funcionalidades/Contactos';*/
 import HoraTemperatura from './src/Funcionalidades/HoraTemperatura';
 import Identificacion from './src/Funcionalidades/Identificacion';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { ContextProvider, Context } from './ContextProvider'
+/*import ContextProvider from 'your-context-provider'
 import NroEmergencia from './src/Funcionalidades/NroEmergencia';
-import About from './src/Funcionalidades/About'
-
+import About from './src/Funcionalidades/About'*/
+const Stack = createStackNavigator();
 export default function App() {
   return (
-  <div id="container">
-    <div class="app">
-      <Image/>
-      <h3>App 1</h3>
-    </div>
-    <div class="app">
-      <Image/>
-      <h3>App 2</h3>
-    </div>
-    <div class="app">
-      <Image/>
-      <h3>App 3</h3>
-    </div>
     <ContextProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Title" component={Title} /> 
-          <Stack.Screen name="Contacts" component={Contactos} /> 
-          <Stack.Screen name="Identification" component={Identificacion} />
+          {/*<Stack.Screen name="Title" component={Title} /> 
+          <Stack.Screen name="Contacts" component={Contactos} /> */}
           <Stack.Screen name="HoraTemperatura" component={HoraTemperatura} />
-          <Stack.Screen name="Emergencia" component={NroEmergencia} />
-          <Stack.Screen name="About" component={About} />
+          {/*<Stack.Screen name="Emergencia" component={NroEmergencia} />
+          <Stack.Screen name="About" component={About} />*/}
         </Stack.Navigator>
       </NavigationContainer>
     </ContextProvider>
-    </div>
   );
 };
 
@@ -62,3 +51,4 @@ const styles = StyleSheet.create({
     fontSize: '16px',
   },
 });
+//  'https://api.weatherapi.com/v1/current.json?q=Buenos%20Aires&key=6d543f6a96974a35852114433231110' \
