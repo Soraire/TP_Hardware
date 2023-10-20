@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
-/*import Title from './src/Funcionalidades/Title';
-import Contactos from './src/Funcionalidades/Contactos';*/
-import HoraTemperatura from './src/Funcionalidades/HoraTemperatura';
-import Identificacion from './src/Funcionalidades/Identificacion';
-/*import ContextProvider from 'your-context-provider'
-import NroEmergencia from './src/Funcionalidades/NroEmergencia';
-import About from './src/Funcionalidades/About'*/
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import Title from './Title';
+//import Contactos from './Contactos';
+import HoraTemperatura from './HoraTemperatura';
+import Identificacion from './Identificacion';
+import NroEmergencia from './NroEmergencia';
+import About from './About'
 
 const HomeScreen = ({ navigation }) => {
-  const emptyIcons = [
-    { name: 'Title', component: 'Title' },
-    { name: 'Contactos', component: 'Contactos' },
-    { name: 'HoraTemperatura', component: 'HoraTemperatura' },
-    { name: 'Identificacion', component: 'Identificacion' },
-    { name: 'NroEmergencia', component: 'NroEmergencia' },
-    { name: 'About', component: 'About' },
+  const icons = [
+    { name: 'Title', component: 'Title', source: "https://cdn-icons-png.flaticon.com/512/5973/5973800.png" },
+    { name: 'Contactos', component: 'Contactos', source: "contactosIcon" },
+    { name: 'HoraTemperatura', component: 'HoraTemperatura', source: "horaTemperaturaIcon" },
+    { name: 'Identificacion', component: 'Identificacion', source: "identificacionIcon" },
+    { name: 'NroEmergencia', component: 'NroEmergencia', source: "nroEmergenciaIcon" },
+    { name: 'About', component: 'About', source: "aboutIcon" },
   ];
 
   return (
     <View style={styles.container}>
-      {emptyIcons.map((icon, index) => (
+      {icons.map((icon, index) => (
         <TouchableOpacity
           key={index}
           style={styles.icon}
           onPress={() => navigation.navigate(icon.component)}
         >
-          {/* You can customize the appearance of your empty icons here */}
-          <Text>{icon.name}</Text>
+          {/* Use the Image component to display the icon */}
+          <Image source={{ uri: icon.source }} style={{ width: 50, height: 50 }} />
+         <Text>{icon.name}</Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -44,10 +44,6 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   icon: {
-    width: 80,
-    height: 80,
-    backgroundColor: '#e0e0e0',
-    justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
   },
