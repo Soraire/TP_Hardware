@@ -37,3 +37,15 @@ const styles = StyleSheet.create({
     height: 200,
   },
 });
+//hay que juntarlos
+return (
+  <View>
+    <TextInput
+      placeholder="Enter Video Link"
+      value={userVideoLink}
+      onChangeText={(text) => setUserVideoLink(text)}
+    />
+    <Button title="Load Video" onPress={() => {}} />
+    <VideoPlayer videoLink={userVideoLink} />
+  </View>
+);

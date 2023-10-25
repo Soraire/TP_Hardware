@@ -5,7 +5,7 @@ import Title from './Title';
 //import Contactos from './Contactos';
 import HoraTemperatura from './HoraTemperatura';
 import Identificacion from './Identificacion';
-import NroEmergencia from './NroEmergencia';
+import NroEmergencia from './VideoPlayer';
 import About from './About'
 
 const HomeScreen = ({ navigation }) => {
@@ -26,9 +26,8 @@ const HomeScreen = ({ navigation }) => {
           style={styles.icon}
           onPress={() => navigation.navigate(icon.component)}
         >
-          {/* Use the Image component to display the icon */}
           <Image source={{ uri: icon.source }} style={{ width: 50, height: 50 }} />
-         <Text>{icon.name}</Text>
+        <Text>{icon.name}</Text>
         </TouchableOpacity>
       ))}
     </View>
