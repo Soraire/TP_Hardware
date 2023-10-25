@@ -1,1 +1,0 @@
-//al final no se hace hacemos el video player
