@@ -11,13 +11,13 @@ import About from './About'
 const HomeScreen = ({ navigation }) => {
   const icons = [
     { name: 'Title', component: 'Title', source: "https://cdn-icons-png.flaticon.com/512/5973/5973800.png" },
-    { name: 'Contactos', component: 'Contactos', source: "contactosIcon" },
-    { name: 'HoraTemperatura', component: 'HoraTemperatura', source: "horaTemperaturaIcon" },
-    { name: 'Identificacion', component: 'Identificacion', source: "identificacionIcon" },
-    { name: 'NroEmergencia', component: 'NroEmergencia', source: "nroEmergenciaIcon" },
-    { name: 'About', component: 'About', source: "aboutIcon" },
+    { name: 'Contactos', component: 'Contactos', source: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_Contacts_icon.svg/1200px-Google_Contacts_icon.svg.png" },
+    { name: 'HoraTemperatura', component: 'HoraTemperatura', source: "https://cdn-icons-png.flaticon.com/512/4158/4158502.png" },
+    { name: 'Identificacion', component: 'Identificacion', source: "https://cdn.icon-icons.com/icons2/1875/PNG/512/qrcodescan_120401.png" },
+    { name: 'NroEmergencia', component: 'NroEmergencia', source: "https://cdn0.iconfinder.com/data/icons/essentials-solid-glyphs-vol-1/100/Phone-Call-Telephone-512.png" },
+    { name: 'About', component: 'About', source: "https://www.freeiconspng.com/thumbs/about-us-icon/information-about-us-icon-16.png" },
   ];
-
+/*hay q mover el hora temp a home */
   return (
     <View style={styles.container}>
       {icons.map((icon, index) => (
