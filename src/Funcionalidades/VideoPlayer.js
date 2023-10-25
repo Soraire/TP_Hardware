@@ -2,6 +2,7 @@
 NEEDS
 ASYNC
 STORAGE
+https://react-native-async-storage.github.io/async-storage/docs/install
 */
 import React, { useRef } from 'react';
 import { View, StyleSheet, Button, TextInput } from 'react-native';
