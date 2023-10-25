@@ -1,3 +1,8 @@
+/*
+NEEDS
+ASYNC
+STORAGE
+*/
 import React, { useRef } from 'react';
 import { View, StyleSheet, Button, TextInput } from 'react-native';
 import Video from 'react-native-video';
@@ -11,7 +16,12 @@ const VideoPlayer = ({ videoLink }) => {
     }
   };
 
-  return (
+  return (<>
+    <TextInput
+    placeholder="Enter Video Link"
+    value={userVideoLink}
+    onChangeText={(text) => setUserVideoLink(text)}
+  />
     <View style={styles.container}>
       <Video
         ref={videoRef}
@@ -23,6 +33,7 @@ const VideoPlayer = ({ videoLink }) => {
       />
       <Button title="Play Video" onPress={playPauseVideo} />
     </View>
+    </>
   );
 };
 
@@ -40,11 +51,7 @@ const styles = StyleSheet.create({
 //hay que juntarlos
 return (
   <View>
-    <TextInput
-      placeholder="Enter Video Link"
-      value={userVideoLink}
-      onChangeText={(text) => setUserVideoLink(text)}
-    />
+
     <Button title="Load Video" onPress={() => {}} />
     <VideoPlayer videoLink={userVideoLink} />
   </View>
