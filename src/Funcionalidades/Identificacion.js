@@ -1,28 +1,32 @@
-/*import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { RNCamera } from 'react-native-camera';
-import QRCodeScanner from 'react-native-qrcode-scanner';
+import React, { useState } from 'react';
+import { View, Text, Modal, TouchableOpacity } from 'react-native';
+// import QRCodeScanner from 'react-native-qrcode-scanner';
 
-export default function QRScanner() {
-  const handleQRCodeScanned = ({ data }) => {
-    // Handle the scanned QR code data here
-    alert(`Scanned QR Code: ${data}`);
+function ScannerScreen() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [scannedData, setScannedData] = useState('');
+
+  const miembros = 'Simon, Santi'; 
+  const handleScan = ({ data }) => {
+    setScannedData(data);
+    setIsModalVisible(true);
   };
 
   return (
-    <QRCodeScanner
-      onRead={handleQRCodeScanned}
-      flashMode={RNCamera.Constants.FlashMode.auto}
-      topViewStyle={{ flex: 0 }}
-      bottomViewStyle={{ flex: 0 }}
-    />
+    <View style={{ flex: 1 }}>
+      <Modal visible={isModalVisible} transparent={true}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ backgroundColor: 'white', padding: 20 }}>
+            <Text>Integrantes de la App Escaneada:</Text>
+            <Text>{miembros}</Text>
+            <TouchableOpacity onPress={() => setIsModalVisible(false)}>
+              <Text>Cerrar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});*/
+export default ScannerScreen;
