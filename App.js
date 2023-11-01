@@ -8,9 +8,8 @@ import Identificacion from './src/Funcionalidades/Identificacion';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ContextProvider, Context } from './ContextProvider'
-/*import ContextProvider from 'your-context-provider'
-import NroEmergencia from './src/Funcionalidades/NroEmergencia';
-import About from './src/Funcionalidades/About'*/
+import VideoPlayer from './src/Funcionalidades/VideoPlayer';
+import About from './src/Funcionalidades/About'
 const Stack = createStackNavigator();
 export default function App() {
   return (
@@ -21,8 +20,8 @@ export default function App() {
           {/*<Stack.Screen name="Title" component={Title} /> 
           <Stack.Screen name="Contacts" component={Contactos} /> */}
           <Stack.Screen name="HoraTemperatura" component={HoraTemperatura} />
-          {/*<Stack.Screen name="Emergencia" component={NroEmergencia} />
-          <Stack.Screen name="About" component={About} />*/}
+          <Stack.Screen name="Video" component={VideoPlayer} />
+          {/*<Stack.Screen name="About" component={About} />*/}
         </Stack.Navigator>
       </NavigationContainer>
     </ContextProvider>
