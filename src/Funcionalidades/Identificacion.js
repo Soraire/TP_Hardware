@@ -1,32 +1,44 @@
-import React, { useState } from 'react';
-import { View, Text, Modal, TouchableOpacity } from 'react-native';
-// import QRCodeScanner from 'react-native-qrcode-scanner';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Button, Modal } from 'react-native';
+import { BarCodeScanner } from 'expo-barcode-scanner';
 
-function ScannerScreen() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [scannedData, setScannedData] = useState('');
+function AboutScreen() {
+  const [isScannerVisible, setScannerVisible] = useState(false);
+  const [scannedData, setScannedData] = useState(null);
 
-  const miembros = 'Simon, Santi'; 
-  const handleScan = ({ data }) => {
+  const handleBarCodeScanned = ({ type, data }) => {
     setScannedData(data);
-    setIsModalVisible(true);
+    setScannerVisible(false);
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <Modal visible={isModalVisible} transparent={true}>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <View style={{ backgroundColor: 'white', padding: 20 }}>
-            <Text>Integrantes de la App Escaneada:</Text>
-            <Text>{miembros}</Text>
-            <TouchableOpacity onPress={() => setIsModalVisible(false)}>
-              <Text>Cerrar</Text>
-            </TouchableOpacity>
-          </View>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Integrantes del grupo:</Text>
+      <Text>Santiago Min</Text>
+      <Text>Simon Chama</Text>
+
+      <QRCode value="Santiago Min, Simon Chama" />
+
+      <Button title="Escanear otro código QR" onPress={() => setScannerVisible(true)} />
+
+      <Modal visible={isScannerVisible} animationType="slide">
+        <View style={{ flex: 1 }}>
+          <BarCodeScanner
+            onBarCodeScanned={handleBarCodeScanned}
+            style={{ flex: 1 }}
+          />
+          <Button title="Cerrar Scanner" onPress={() => setScannerVisible(false)} />
         </View>
       </Modal>
+
+      {scannedData && (
+        <View>
+          <Text>Integrantes de la aplicación escaneada:</Text>
+          <Text>{scannedData}</Text>
+        </View>
+      )}
     </View>
   );
 }
 
-export default ScannerScreen;
+export default AboutScreen;

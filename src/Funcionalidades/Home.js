@@ -14,7 +14,7 @@ const HomeScreen = ({ navigation }) => {
     { name: 'Contactos', component: 'Contactos', source: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_Contacts_icon.svg/1200px-Google_Contacts_icon.svg.png" },
     { name: 'HoraTemperatura', component: 'HoraTemperatura', source: "https://cdn-icons-png.flaticon.com/512/4158/4158502.png" },
     { name: 'Identificacion', component: 'Identificacion', source: "https://cdn.icon-icons.com/icons2/1875/PNG/512/qrcodescan_120401.png" },
-    { name: 'Video', component: 'Videoplayer', source: "https://www.iconpacks.net/icons/1/free-video-icon-818-thumb.png" },
+    { name: 'VideoPlayer', component: 'Videoplayer', source: "https://www.iconpacks.net/icons/1/free-video-icon-818-thumb.png" },
     { name: 'About', component: 'About', source: "https://www.freeiconspng.com/thumbs/about-us-icon/information-about-us-icon-16.png" },
   ];
 /*hay q mover el hora temp a home */
