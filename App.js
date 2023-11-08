@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-/*import Title from './src/Funcionalidades/Title';
-import Contactos from './src/Funcionalidades/Contactos';*/
+/*import Title from './src/Funcionalidades/Title';*/
+import Contactos from './src/Funcionalidades/Contactos';
 import Home from './src/Funcionalidades/Home';
 import HoraTemperatura from './src/Funcionalidades/HoraTemperatura';
 import Identificacion from './src/Funcionalidades/Identificacion';
@@ -17,8 +17,8 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name = "Home" component={Home}/>
-          {/*<Stack.Screen name="Title" component={Title} /> 
-          <Stack.Screen name="Contacts" component={Contactos} /> */}
+          {/*<Stack.Screen name="Title" component={Title} /> */}
+          <Stack.Screen name="Contactos" component={Contactos} />
           <Stack.Screen name="HoraTemperatura" component={HoraTemperatura} />
           <Stack.Screen name="VideoPlayer" component={VideoPlayer} />
           {/*<Stack.Screen name="About" component={About} />*/}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image } from 'react-native';
 import Contacts from 'react-native-contacts';
-
-const ContactListScreen = () => {
+import { PermissionsAndroid } from 'react-native';
+const Contactos = () => {
   const [contacts, setContacts] = useState([]);
   useEffect(() => {
     Contacts.getAll()
@@ -24,7 +24,7 @@ const ContactListScreen = () => {
             <Text>{item.displayName}</Text>
             <Text>{item.phoneNumbers[0].number}</Text>
             {item.isDefaultEmergency && (
-              <Image source={require('./emergency-icon.png')} style={{ width: 20, height: 20 }} />
+              <Image source={"https://www.svgrepo.com//show/110286/emergency-call.svg"} style={{ width: 20, height: 20 }} />
             )}
           </View>
         )}
@@ -32,4 +32,9 @@ const ContactListScreen = () => {
     </View>
   );
 };
-export default ContactListScreen;
+export default Contactos;
+/*
+npm install react-native-contacts --save
+
+react-native link react-native-contacts
+*/
