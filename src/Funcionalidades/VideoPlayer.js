@@ -4,26 +4,42 @@ ASYNC
 STORAGE
 https://react-native-async-storage.github.io/async-storage/docs/install
 */
-// VideoPlayer.js
-// VideoPlayer.tsx
+import { Video, ResizeMode } from 'expo-av';
 import React, { useRef } from 'react';
-import { View, StyleSheet, Button, TextInput } from 'react-native';
-//import Video from 'react-native-video';
+import { View, StyleSheet, Button, TextInput, Text } from 'react-native';
 
 const VideoPlayer = () => {
-  const videoRef = useRef(null);
-
+  const video = React.useRef(null);
+  const [status, setStatus] = React.useState({});
   return (
     <View style={styles.container}>
+      <Text/><Text/><Text/><Text/>
       <TextInput
         style={styles.input}
         placeholder="Enter Video Link"
-        value={videoLink}
-        onChangeText={(text) => onPlayPause(text)}
+        value={video}
       />
-      <View style={styles.videoContainer}>
-        <Button title="Play Video" onPress={() => onPlayPause(videoLink)} />
+      <View style={styles.container}>
+      <Video
+        ref={video}
+        style={styles.video}
+        source={{
+          uri: 'https://www.youtube.com/watch?v=fC7oUOUEEi4',
+        }}
+        useNativeControls
+        resizeMode={ResizeMode.CONTAIN}
+        isLooping
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
+      />
+      <View style={styles.buttons}>
+        <Button
+          title={status.isPlaying ? 'Pause' : 'Play'}
+          onPress={() =>
+            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
+          }
+        />
       </View>
+    </View>
     </View>
   );
 };

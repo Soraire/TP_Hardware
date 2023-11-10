@@ -1,40 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image } from 'react-native';
-import Contacts from 'react-native-contacts';
-import { PermissionsAndroid } from 'react-native';
+import * as Contacts from 'expo-contacts';
+
 const Contactos = () => {
   const [contacts, setContacts] = useState([]);
+
   useEffect(() => {
-    Contacts.getAll()
-      .then(contactsData => {
-        const emergencyContacts = contactsData.filter(contact => contact.isDefaultEmergency);
-        setContacts(emergencyContacts);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    (async () => {
+      const { status } = await Contacts.requestPermissionsAsync();
+
+      if (status === 'granted') {
+        const { data } = await Contacts.getContactsAsync({
+          fields: [Contacts.Fields.Name, Contacts.Fields.PhoneNumbers, Contacts.Fields.Image],
+        });
+
+        if (data.length > 0) {
+          setContacts(data);
+        }
+      }
+    })();
   }, []);
+
   return (
     <View>
       <FlatList
         data={contacts}
-        keyExtractor={(item) => item.recordID}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View>
-            <Text>{item.displayName}</Text>
-            <Text>{item.phoneNumbers[0].number}</Text>
-            {item.isDefaultEmergency && (
-              <Image source={"https://www.svgrepo.com//show/110286/emergency-call.svg"} style={{ width: 20, height: 20 }} />
-            )}
+            <Text>{item.name}</Text>
+            <Text>{item.phoneNumbers && item.phoneNumbers.length > 0 ? item.phoneNumbers[0].number : ''}</Text>
+            <Image source={{ uri: item.image ? item.image.uri : 'https://www.svgrepo.com/show/110286/emergency-call.svg' }} style={{ width: 20, height: 20 }} />
           </View>
         )}
       />
     </View>
   );
 };
-export default Contactos;
-/*
-npm install react-native-contacts --save
 
-react-native link react-native-contacts
-*/
+export default Contactos;

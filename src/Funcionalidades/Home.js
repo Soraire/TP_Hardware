@@ -7,6 +7,8 @@ import HoraTemperatura from './HoraTemperatura';
 import Identificacion from './Identificacion';  
 import NroEmergencia from './VideoPlayer';
 import About from './About'
+import { PermissionsAndroid } from 'react-native';
+import Contacts from 'react-native-contacts';
 
 const HomeScreen = ({ navigation }) => {
   const icons = [
@@ -14,28 +16,9 @@ const HomeScreen = ({ navigation }) => {
     { name: 'Contactos', component: 'Contactos', source: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_Contacts_icon.svg/1200px-Google_Contacts_icon.svg.png" },
     {/* name: 'HoraTemperatura', component: 'HoraTemperatura', source: "https://cdn-icons-png.flaticon.com/512/4158/4158502.png" */},
     { name: 'Identificacion', component: 'Identificacion', source: "https://cdn.icon-icons.com/icons2/1875/PNG/512/qrcodescan_120401.png" },
-    { name: 'VideoPlayer', component: 'Videoplayer', source: "https://www.iconpacks.net/icons/1/free-video-icon-818-thumb.png" },{/*
+    { name: 'VideoPlayer', component: 'VideoPlayer', source: "https://www.iconpacks.net/icons/1/free-video-icon-818-thumb.png" },{/*
   { name: 'About', component: 'About', source: "https://www.freeiconspng.com/thumbs/about-us-icon/information-about-us-icon-16.png" },*/}
   ];
-  PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CONTACTS, {
-    title: 'Contacts',
-    message: 'This app would like to view your contacts.',
-    buttonPositive: 'Please accept bare mortal',
-})
-    .then((res) => {
-        console.log('Permission: ', res);
-        Contacts.getAll()
-            .then((contacts) => {
-                // work with contacts
-                console.log(contacts);
-            })
-            .catch((e) => {
-                console.log(e);
-            });
-    })
-    .catch((error) => {
-        console.error('Permission error: ', error);
-    });
 /*hay q mover el hora temp a home */
   return (
     <View style={styles.container}>
