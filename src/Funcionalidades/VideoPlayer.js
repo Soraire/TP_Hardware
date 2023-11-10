@@ -31,6 +31,7 @@ const VideoPlayer = () => {
         style={styles.input}
         placeholder="Enter Video Link"
         value={videoLink}
+        onChangeText={setVideoLink}
       />
       <Button title="Submit" onPress={handleVideoSubmit} />
 
@@ -44,7 +45,7 @@ const VideoPlayer = () => {
           useNativeControls
           resizeMode={ResizeMode.CONTAIN}
           isLooping
-          onPlaybackStatusUpdate={(status) => setStatus(() => status)}
+          onPlaybackStatusUpdate={(status) => setStatus(status)}
         />
         <View style={styles.buttons}>
           <Button
