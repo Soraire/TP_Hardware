@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { useNavigation } from '@react-navigation/native';
 
@@ -15,14 +15,11 @@ const About = () => {
   }, []);
 
   const handleScan = ({ data }) => {
-    // Aquí puedes manejar la lógica cuando se escanea un código QR
-    // Extraer la información del código QR, como los nombres de los integrantes.
-    // Mostrar esta información en un modal o pantalla de resultados.
     alert(`Código QR escaneado:\n${data}`);
   };
 
   const navigateToScanner = () => {
-    navigation.navigate('Scanner'); // Ajusta esto según la configuración de tu navegación
+    navigation.navigate('Scanner');
   };
 
   if (hasPermission === null) {
@@ -35,48 +32,33 @@ const About = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Acerca de la Aplicación</Text>
-      {/* Aquí puedes agregar información sobre tu aplicación */}
-      
-      {/* Código QR */}
+      <Text style={styles.title}>Simon Chama y Santiago Min</Text>
+      <Image source={require('./Qr.png')}></Image>
       <BarCodeScanner
         onBarCodeScanned={handleScan}
-        style={styles.qrScanner}
-      />
+        style={styles.qrScanner}/>
       
-      {/* Botón para escanear otra aplicación */}
       <TouchableOpacity onPress={navigateToScanner} style={styles.button}>
         <Text style={styles.buttonText}>Escanear Otra Aplicación</Text>
       </TouchableOpacity>
     </View>
   );
 };
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  qrScanner: {
-    width: 200,
-    height: 200,
-    marginBottom: 20,
-  },
-  button: {
-    backgroundColor: '#3498db',
-    padding: 10,
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
-});
+    container: {
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+      padding: 20,
+    },
+    icon: {
+      alignItems: 'center',
+      margin: 10,
+    },
+    img: {
+        alignItems: 'center'
+    }
+  });
 
 export default About;

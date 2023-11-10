@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Contactos from './src/Funcionalidades/Contactos';
 import Home from './src/Funcionalidades/Home';
 import HoraTemperatura from './src/Funcionalidades/HoraTemperatura';
-import Identificacion from './src/Funcionalidades/Identificacion';
+import About from './src/Funcionalidades/About';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ContextProvider, Context } from './ContextProvider'
@@ -21,7 +21,7 @@ export default function App() {
           <Stack.Screen name="Contactos" component={Contactos} />
           <Stack.Screen name="HoraTemperatura" component={HoraTemperatura} />
           <Stack.Screen name="VideoPlayer" component={VideoPlayer} />
-          {/*<Stack.Screen name="About" component={About} />*/}
+          {<Stack.Screen name="About" component={About} />}
         </Stack.Navigator>
       </NavigationContainer>
     </ContextProvider>

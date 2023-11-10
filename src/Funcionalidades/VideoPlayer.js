@@ -5,7 +5,7 @@ STORAGE
 https://react-native-async-storage.github.io/async-storage/docs/install
 */
 import { Video, ResizeMode } from 'expo-av';
-import React, { useRef } from 'react';
+import React from 'react';
 import { View, StyleSheet, Button, TextInput, Text } from 'react-native';
 
 const VideoPlayer = () => {
@@ -17,14 +17,16 @@ const VideoPlayer = () => {
       <TextInput
         style={styles.input}
         placeholder="Enter Video Link"
-        value={video}
+        value={video} 
+         onSubmit 
+         
       />
       <View style={styles.container}>
       <Video
         ref={video}
         style={styles.video}
         source={{
-          uri: 'https://www.youtube.com/watch?v=fC7oUOUEEi4',
+          uri: video,
         }}
         useNativeControls
         resizeMode={ResizeMode.CONTAIN}

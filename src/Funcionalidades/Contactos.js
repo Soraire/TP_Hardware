@@ -20,7 +20,7 @@ const Contactos = () => {
       }
     })();
   }, []);
-
+  
   return (
     <View>
       <FlatList
