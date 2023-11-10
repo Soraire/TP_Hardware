@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
-import Title from './Title';
 import Contactos from './Contactos';
 import HoraTemperatura from './HoraTemperatura';
 import Identificacion from './Identificacion';  

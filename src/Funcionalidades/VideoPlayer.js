@@ -11,6 +11,17 @@ import { View, StyleSheet, Button, TextInput, Text } from 'react-native';
 const VideoPlayer = () => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
+  const [videoLink, setVideoLink] = React.useState('');
+  
+  const handleVideoSubmit = async () => {
+    try {
+      await AsyncStorage.setItem('videoLink', videoLink);
+      console.log('Enlace del video guardado con éxito');
+    } catch (error) {
+      console.error('Error al guardar el enlace del video:', error);
+    } 
+  };
+
   return (
     <View style={styles.container}>
       <Text/><Text/><Text/><Text/>
@@ -18,8 +29,8 @@ const VideoPlayer = () => {
         style={styles.input}
         placeholder="Enter Video Link"
         value={video} 
-         onSubmit 
-         
+        onChangeText={(value) => setVideoLink(value)}
+        onSubmitEditing={handleVideoSubmit}
       />
       <View style={styles.container}>
       <Video
