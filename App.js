@@ -9,7 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ContextProvider, Context } from './ContextProvider'
 import VideoPlayer from './src/Funcionalidades/VideoPlayer';
-/*import About from './src/Funcionalidades/About'*/
+import Identificacion from './src/Funcionalidades/Identificacion'
 const Stack = createStackNavigator();
 export default function App() {
   return (
@@ -17,7 +17,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name = "Home" component={Home}/>
-          {/*<Stack.Screen name="Title" component={Title} /> */}
+          <Stack.Screen name="Identificacion" component={Identificacion} />
           <Stack.Screen name="Contactos" component={Contactos} />
           <Stack.Screen name="HoraTemperatura" component={HoraTemperatura} />
           <Stack.Screen name="VideoPlayer" component={VideoPlayer} />

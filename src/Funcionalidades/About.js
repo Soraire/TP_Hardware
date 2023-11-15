@@ -19,7 +19,7 @@ const About = () => {
   };
 
   const navigateToScanner = () => {
-    navigation.navigate('Scanner');
+    navigation.navigate('Identificacion');
   };
 
   if (hasPermission === null) {

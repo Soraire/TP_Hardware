@@ -12,10 +12,8 @@ import Contacts from 'react-native-contacts';
 const HomeScreen = ({ navigation }) => {
   const icons = [
     { name: 'Contactos', component: 'Contactos', source: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_Contacts_icon.svg/1200px-Google_Contacts_icon.svg.png" },
-    {/* name: 'HoraTemperatura', component: 'HoraTemperatura', source: "https://cdn-icons-png.flaticon.com/512/4158/4158502.png" */},
     { name: 'About', component: 'About', source: "https://www.freeiconspng.com/thumbs/about-us-icon/information-about-us-icon-16.png" },
-    { name: 'VideoPlayer', component: 'VideoPlayer', source: "https://www.iconpacks.net/icons/1/free-video-icon-818-thumb.png" },{/*
-  { name: 'About', component: 'About', source: "https://www.freeiconspng.com/thumbs/about-us-icon/information-about-us-icon-16.png" },*/}
+    { name: 'VideoPlayer', component: 'VideoPlayer', source: "https://www.iconpacks.net/icons/1/free-video-icon-818-thumb.png" }
   ];
 /*hay q mover el hora temp a home */
   return (
